@@ -19,5 +19,5 @@
 
 ## New request (Sep 12)
 
-- [ ] Migrate from browser storage to Lovable Cloud (Supabase): schema + RLS, auth, real booking flow, admin dashboard, logging, performance, polish
+- [ ] Migrate from browser storage to Supabase Cloud: schema + RLS, auth, real booking flow, admin dashboard, logging, performance, polish
 - [x] Intro video: play full length, hold 5s after end
