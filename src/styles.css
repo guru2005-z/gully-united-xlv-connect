@@ -1,0 +1,303 @@
+@import "tailwindcss";
+@source "../src";
+@source "../app";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * GULLY UNITED XLV — Dark Sports-Tech Glassmorphism Design System
+ * Palette: Deep Black (#050505), Charcoal (#080808, #0D0D0D), Neon Lime Green (#CCFF00)
+ * Strictly NO red, blue, purple, or orange.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+  --font-display: "Anton", "Arial Narrow", sans-serif;
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --radius: 0.75rem;
+  --background: #050505;
+  --foreground: #fcfcfc;
+  --surface: #0d0d0d;
+  --card: #080808;
+  --card-foreground: #ffffff;
+  --popover: #0c0c0c;
+  --popover-foreground: #ffffff;
+  --primary: #ccff00;
+  --primary-foreground: #000000;
+  --secondary: #141414;
+  --secondary-foreground: #fcfcfc;
+  --muted: #1c1c1c;
+  --muted-foreground: #9e9e9e;
+  --accent: #ccff00;
+  --accent-foreground: #000000;
+  --destructive: #7f1d1d;
+  --destructive-foreground: #ffffff;
+  --border: rgba(255, 255, 255, 0.1);
+  --input: rgba(255, 255, 255, 0.08);
+  --ring: #ccff00;
+  --glow-neon: 0 0 25px rgba(204, 255, 0, 0.35);
+  --glow-subtle: 0 0 15px rgba(204, 255, 0, 0.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: #050505;
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #050505;
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  .display {
+    font-family: var(--font-display);
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    line-height: 0.9;
+    font-weight: 400;
+  }
+
+  ::selection {
+    background: var(--primary);
+    color: var(--primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 3px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* MORPHISM & UTILITY CLASSES */
+
+@utility glass-dark {
+  background: rgba(13, 13, 13, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+@utility glass-card {
+  background: rgba(18, 18, 18, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+@utility bento-card {
+  background: rgba(15, 15, 15, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    border-color: rgba(204, 255, 0, 0.4);
+    transform: translateY(-4px);
+    box-shadow:
+      0 20px 40px -15px rgba(0, 0, 0, 0.8),
+      0 0 20px rgba(204, 255, 0, 0.12);
+  }
+}
+
+@utility btn-neon {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #ccff00;
+  color: #000000;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 4px 20px rgba(204, 255, 0, 0.3);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    background: #d8ff33;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(204, 255, 0, 0.5);
+  }
+  &:active {
+    transform: translateY(0) scale(0.98);
+  }
+}
+
+@utility btn-glass {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  min-height: 3.25rem;
+  padding: 0.9rem 1.75rem;
+  border-radius: 0.75rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  &:hover {
+    border-color: #ccff00;
+    color: #ccff00;
+    background: rgba(204, 255, 0, 0.08);
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(204, 255, 0, 0.2);
+  }
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+@utility text-neon {
+  color: #ccff00;
+}
+
+@utility neon-glow {
+  text-shadow: 0 0 20px rgba(204, 255, 0, 0.6);
+}
+
+@utility slot-available {
+  background: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  transition: all 0.2s ease;
+  &:hover {
+    border-color: #ccff00;
+    box-shadow: 0 0 15px rgba(204, 255, 0, 0.2);
+    transform: translateY(-2px);
+  }
+}
+
+@utility slot-selected {
+  background: #ccff00 !important;
+  border-color: #ccff00 !important;
+  color: #000000 !important;
+  font-weight: 800 !important;
+  box-shadow: 0 0 25px rgba(204, 255, 0, 0.5) !important;
+  transform: translateY(-2px) scale(1.02) !important;
+}
+
+@utility slot-booked {
+  background: rgba(18, 18, 18, 0.4) !important;
+  border: 1px solid rgba(255, 255, 255, 0.04) !important;
+  color: #555555 !important;
+  cursor: not-allowed !important;
+  opacity: 0.6;
+}
+
+@utility slot-blocked {
+  background: rgba(25, 25, 25, 0.5) !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+  opacity: 0.5;
+}
+
+@utility particle-dust {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(204, 255, 0, 0.4);
+  pointer-events: none;
+  animation: float-dust 12s infinite ease-in-out;
+}
+
+@keyframes float-dust {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-40px) translateX(20px) scale(1.3);
+    opacity: 0.7;
+  }
+}
+
+@keyframes pulse-ambient {
+  0%,
+  100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(1.08);
+  }
+}
+
+@utility animate-pulse-ambient {
+  animation: pulse-ambient 8s ease-in-out infinite;
+}
+
+@utility grain-overlay {
+  background-image: radial-gradient(rgba(204, 255, 0, 0.05) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
